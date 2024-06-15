@@ -62,8 +62,20 @@
       "e2eTestRunner": "playwright",
       "linter": "eslint",
       "style": "scss",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "skipTests": true
     },
-    
+    "@nx/angular:component": {
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest",
+      "skipTests": true
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest",
+      "skipTsConfig": true
+    }
   }
 }
