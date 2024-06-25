@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 import { LandingPageComponent } from './landing-page.component';
 
 @Component({
@@ -8,6 +9,9 @@ import { LandingPageComponent } from './landing-page.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'client';
+  ngOnInit(): void {
+    initFlowbite();
+  }
 }

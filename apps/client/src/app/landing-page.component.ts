@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import type { InstanceOptions, ModalInterface, ModalOptions } from 'flowbite';
+import { Modal } from 'flowbite';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,4 +11,30 @@ import { CommonModule } from '@angular/common';
   styleUrl: './landing-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LandingPageComponent {}
+export class LandingPageComponent implements OnInit {
+  $modalElement: HTMLElement | null = null;
+
+  modal: ModalInterface | null = null;
+
+  ngOnInit(): void {
+    this.$modalElement = document.querySelector('#modalEl');
+    this.modal = new Modal(
+      this.$modalElement,
+      { placement: 'top-center' } as ModalOptions,
+      {
+        id: 'modalEl',
+        override: true,
+      } as InstanceOptions
+    );
+  }
+
+  showModal(): void {
+    console.log('toggle modal method');
+    this.modal?.show();
+  }
+
+  hideModal(): void {
+    console.log('hide modal method');
+    this.modal?.hide();
+  }
+}
