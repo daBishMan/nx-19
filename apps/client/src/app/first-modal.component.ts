@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-first-modal',
@@ -8,4 +9,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './first-modal.component.html',
   styleUrl: './first-modal.component.scss',
 })
-export class FirstModalComponent {}
+export class FirstModalComponent {
+  private readonly modalService = inject(ModalService);
+
+  hide() {
+    this.modalService.dismiss();
+  }
+}
