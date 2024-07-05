@@ -5,8 +5,7 @@ import { OutsideDirective } from './outside.directive';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule],
-  providers: [OutsideDirective],
+  imports: [CommonModule, OutsideDirective],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 
@@ -20,4 +19,8 @@ export class LandingPageComponent implements OnInit {
   handleOutsideClick(): void {
     console.log('clicked outside');
   }
+
+  clearInput(): void {
+    console.log('clear input');
+  } 
 }
